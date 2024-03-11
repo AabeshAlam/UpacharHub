@@ -1,194 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login and Sign Up Form</title>
+    <link rel="stylesheet" href="./css/style.css">
     <style>
         body {
             background-image: url("./images/bg-texture.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            perspective: 1000px;
-            background-color: #f4f4f4;
         }
 
         .form-container {
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+            background-color: #1a1a1a;
             border-radius: 8px;
-            width: 260px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            max-width: 100%;
             text-align: center;
-            transform: scale(1);
-            opacity: 1;
-            animation: zoomInContainer 0.5s ease-in-out;
-        }
-
-        @keyframes zoomInContainer {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
         }
 
         .form-container h2 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
+            color: #fffb00;
         }
 
         .form-group label {
+            color: #fffb00;
             display: block;
-            font-weight: bold;
             margin-bottom: 8px;
-            color: #555;
-            font-size: 0.9em;
+            text-align: left;
         }
 
         .form-group input {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            margin-bottom: 16px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: 1px solid #fff;
             border-radius: 4px;
-            transition: border-color 0.3s ease-in-out;
-            font-size: 0.9em;
-        }
-
-        .form-group input:focus {
-            border-color: #d5fb00;
+            background-color: #1a1a1a;
+            color: #fff;
         }
 
         .form-group button {
-            background-color: #f7fb00;
-            color: #fff;
-            padding: 10px 15px;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
             border: none;
             border-radius: 4px;
+            background-color: #fffb00;
+            color: #1a1a1a;
             cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-            font-size: 0.9em;
+            transition: background-color 0.3s;
         }
 
         .form-group button:hover {
-            background-color: #f3fb00;
+            background-color: #0056b3;
         }
 
-        .form-group.checkbox {
+        .form-group.checkbox label {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            color: #555;
-            font-size: 0.8em;
-        }
-
-        .form-group.checkbox input {
-            width: auto;
-            margin-right: 5px;
-        }
-
-        .form-group.forgot-password {
-            text-align: right;
-            margin-top: 8px;
-            font-size: 0.8em;
-        }
-
-        .form-group.forgot-password a {
-            color: #f7fb00;
-            text-decoration: none;
-        }
-
-        .form-group.sign-in-google {
-            margin-top: 15px;
-        }
-
-        .form-group.sign-in-google button {
-            background-color: #4285f4;
             color: #fff;
-            font-size: 0.9em;
         }
 
-        .form-group.sign-in-google button:hover {
-            background-color: #fbf300;
+        .input-group button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #1a1a1a;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .form-switch {
-            margin-top: 15px;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out 0.5s forwards;
-            color: #555;
-            font-size: 0.8em;
+        .input-group button:hover {
+            background-color: #0056b3;
         }
 
-        .form-switch a {
-            color: #eafb00;
-            text-decoration: none;
-        }
-
-        @keyframes rotateContainer {
-            from {
-                transform: rotateY(90deg);
-            }
-            to {
-                transform: rotateY(20deg);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Styles for the sign-up form */
-        #signupFormContainer {
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-            width: 260px;
-            text-align: center;
-            transform: scale(1);
-            opacity: 1;
-            animation: zoomInContainer 0.5s ease-in-out;
-            display: none;
-        }
-
-        #signupFormContainer h2 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        #signupFormContainer .form-switch {
-            opacity: 1;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
+        .form-switch p a {
+            color: #0056b3;
         }
     </style>
 </head>
+
 <body>
 
     <div class="form-container" id="loginFormContainer">
@@ -208,15 +111,13 @@
                 </label>
             </div>
             <div class="form-group">
-                <a href="/responsive multipage education website/courses.html">
-                    <button type="submit">Login</button>
-                </a>
-            </div>            
+                <button type="submit">Login</button>
+            </div>
             <div class="form-group forgot-password">
                 <a href="#">Forgot Password?</a>
             </div>
             <div class="input-group mb-3">
-                <button class="btn btn-lg btn-light w-100 fs-6"><i class="uil uil-google"></i> Sign In with Google</button>            
+                <button class="btn btn-lg btn-light w-100 fs-6"><i class="uil uil-google"></i> Sign In with Google</button>
             </div>
         </form>
         <div class="form-switch">
@@ -224,7 +125,7 @@
         </div>
     </div>
 
-    <div class="form-container" id="signupFormContainer">
+    <div class="form-container" id="signupFormContainer" style="display: none;">
         <h2>Sign Up</h2>
         <form action="#" method="post" id="signupForm">
             <div class="form-group">
@@ -245,16 +146,17 @@
     </div>
 
     <script>
-        document.getElementById('signupLink').addEventListener('click', function() {
+        document.getElementById('signupLink').addEventListener('click', function () {
             document.getElementById('loginFormContainer').style.display = 'none';
             document.getElementById('signupFormContainer').style.display = 'block';
         });
 
-        document.getElementById('loginLink').addEventListener('click', function() {
+        document.getElementById('loginLink').addEventListener('click', function () {
             document.getElementById('signupFormContainer').style.display = 'none';
             document.getElementById('loginFormContainer').style.display = 'block';
         });
     </script>
 
 </body>
+
 </html>
